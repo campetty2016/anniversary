@@ -1,0 +1,114 @@
+<html>
+	<head>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Playball&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				background: linear-gradient(
+					180deg,
+					purple,
+					silver,
+					lightblue,
+					transparent
+				);
+			}
+
+			h1 {
+				text-align: center;
+				color: white;
+				font-family: 'Playball', cursive;
+			}
+
+			.main-content-container {
+				display: flex;
+				margin: auto;
+				justify-content: center;
+			}
+
+			.featured-image-container {
+				width: 100%;
+			}
+
+			.featured-image {
+				height: 500px;
+				width: 100%;
+				background-size: contain;
+				background-repeat: no-repeat;
+				margin: auto;
+			}
+
+			.gallery {
+				display: grid;
+				grid-template-columns: auto auto auto auto;
+			}
+
+			img {
+				width: 200px;
+				border-radius: 50%;
+				border: 1px solid white;
+			}
+		</style>
+	</head>
+
+	<body
+		style="
+			background: linear-gradient(
+				180deg,
+				purple,
+				silver,
+				lightblue,
+				transparent
+			);
+		"
+	>
+		<h1 style="text-align: center;">38 Years of Adventures</h1>
+
+		<div class="main-content-container">
+			<div class="featured-image-container">
+				<div class="featured-image"></div>
+			</div>
+
+			<div
+				class="gallery"
+				style="display: grid; grid-template-columns: auto auto auto auto;"
+			>
+				<img
+					src="http://drive.google.com/uc?export=view&id=1FSr9Vw5qTcROZYyRBj-7GWLGXCF7USJN"
+				/>
+				<img
+					src="http://drive.google.com/uc?export=view&id=1ulqMX0N_tnblQotHBQ_FJPcOIO7jlYdR"
+				/>
+				<img
+					src="http://drive.google.com/uc?export=view&id=1FSr9Vw5qTcROZYyRBj-7GWLGXCF7USJN"
+				/>
+				<img
+					src="http://drive.google.com/uc?export=view&id=1iZUj_LacI3ntYKDT94tHLAPEfAChesgG"
+				/>
+			</div>
+		</div>
+
+		<script>
+			for (let i = 0; i < document.querySelectorAll('img').length; i++) {
+				document.querySelector(
+					'.featured-image'
+				).style.backgroundImage = `url('${document
+					.querySelectorAll('img')[0]
+					.getAttribute('src')}')`;
+
+				document
+					.querySelectorAll('img')
+					[i].addEventListener('click', function (featured_image) {
+						console.log(featured_image.target.getAttribute('src'));
+
+						document.querySelector(
+							'.featured-image'
+						).style.backgroundImage = `url('${featured_image.target.getAttribute(
+							'src'
+						)}')`;
+					});
+			}
+		</script>
+	</body>
+</html>
